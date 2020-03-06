@@ -8,4 +8,13 @@ public class Car {
         this.name = new CarName(name);
         this.position = new CarPosition(0);
     }
+
+    public void move(int no) {
+        position.move(no);
+    }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
+
 }
