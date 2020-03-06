@@ -11,28 +11,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
 public class CarsTest {
-    List<Car> cars;
+    List<Car> input;
 
     @BeforeEach
     void setUp() {
-        cars = Arrays.asList(
+        input = Arrays.asList(
                 new Car("A", 24),
                 new Car("B", 0),
-                new Car("C", 7)
+                new Car("C", 7),
+                new Car("D", 24)
         );
     }
 
     @Test
     @DisplayName("Cars 생성 테스트")
     void initTest() {
-        assertThatCode(() -> new Cars(cars))
+        assertThatCode(() -> new Cars(input))
                 .doesNotThrowAnyException();
     }
 
     @Test
     @DisplayName("전체 차량 이동, 정지 테스트")
     void playRoundTest() {
-        Cars cars = new Cars(this.cars);
+        Cars cars = new Cars(input);
 
         //이동
         cars.playRound(new MoveNumberGenerator());
@@ -45,5 +46,16 @@ public class CarsTest {
         assertThat(cars.getCars().get(0).getPosition()).isEqualTo(25);
         assertThat(cars.getCars().get(1).getPosition()).isEqualTo(1);
         assertThat(cars.getCars().get(2).getPosition()).isEqualTo(8);
+    }
+
+    @Test
+    @DisplayName("우승자 탐색")
+    void findWinnerTest() {
+        Cars cars = new Cars(input);
+
+        assertThat(cars.findWinner()).contains("A");
+        assertThat(cars.findWinner()).contains("D");
+        assertThat(cars.findWinner()).doesNotContain("B");
+        assertThat(cars.findWinner()).doesNotContain("C");
     }
 }

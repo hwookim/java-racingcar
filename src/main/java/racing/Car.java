@@ -17,6 +17,10 @@ public class Car {
         position.move(no);
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
     public int getPosition() {
         return position.getPosition();
     }
