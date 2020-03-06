@@ -4,9 +4,13 @@ public class Car {
     CarName name;
     CarPosition position;
 
-    public Car(String name) {
+    public Car(String name, int position) {
         this.name = new CarName(name);
-        this.position = new CarPosition(0);
+        this.position = new CarPosition(position);
+    }
+
+    public Car(String name) {
+        this(name, 0);
     }
 
     public void move(int no) {
@@ -16,5 +20,4 @@ public class Car {
     public int getPosition() {
         return position.getPosition();
     }
-
 }
