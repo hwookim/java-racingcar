@@ -1,4 +1,4 @@
-package racing;
+package racing.utils;
 
 public class MoveNumberGenerator implements NumberGenerator {
     @Override

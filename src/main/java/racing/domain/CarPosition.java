@@ -1,4 +1,4 @@
-package racing;
+package racing.domain;
 
 public class CarPosition {
     private static final int MOVE_PIVOT = 4;

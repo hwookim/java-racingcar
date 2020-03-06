@@ -1,4 +1,6 @@
-package racing;
+package racing.domain;
+
+import racing.utils.NumberGenerator;
 
 import java.util.List;
 import java.util.stream.Collectors;
