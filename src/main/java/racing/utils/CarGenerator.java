@@ -1,6 +1,7 @@
 package racing.utils;
 
 import racing.domain.Car;
+import racing.domain.Cars;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,12 +13,12 @@ public class CarGenerator {
     private static final String SEPARATOR = ",";
     private static final String BLANK = "";
 
-    public static List<Car> generate(String input) {
+    public static Cars generate(String input) {
         List<String> carNames = split(input);
         validateNameDuplication(carNames);
-        return carNames.stream()
+        return new Cars(carNames.stream()
                 .map(Car::new)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
     public static List<String> split(String input) {
